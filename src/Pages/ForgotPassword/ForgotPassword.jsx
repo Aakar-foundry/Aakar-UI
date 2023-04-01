@@ -22,6 +22,7 @@ const ForgotPassword = () => {
                 <OTPInput
                 onChange={handleChange}
                 value={OTP}
+                
                 inputStyle="inputStyle"
                 numInputs={6}
                 separator={<span></span>}
