@@ -31,7 +31,7 @@ body{
 
   
   /* Set a style for all buttons */
-  button {
+  .button {
     background-color: #68e9f5;
     color: white;
     padding: 14px 20px;

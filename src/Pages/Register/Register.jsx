@@ -105,7 +105,8 @@ const Register = () => {
           style={{ backgroundColor: "#f1f1f1" }}
         >
           <a>
-            <button className={classes.signup} value="Sign Up">
+            <button className={classes.signup} 
+            value="Sign Up">
               Register/Sign Up
             </button>
           </a>

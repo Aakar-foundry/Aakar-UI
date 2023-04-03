@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import OTPInput from "react-otp-input";
-import "./ForgetPassword.css";
+import FPclasses from "./ForgetPassword.module.css";
 const ForgotPassword = () => {
     const [OTP,setOTP] = useState(123456);
     function handleChange(OTP){
@@ -11,18 +11,18 @@ const ForgotPassword = () => {
         console.log(OTP);
     }
   return (
-            <div className='verifyDiv'>
+            <div className={FPclasses.verifyDiv}>
     <div>
         <form onSubmit={submitHandler} >
             <label>Enter your Email:</label>
             <input type="email"/>
-            <div className="otpElements">
+            <div className={FPclasses.otpElements} >
 
-            <div className="otp">
+            <div className={FPclasses.otp} >
                 <OTPInput
                 onChange={handleChange}
                 value={OTP}
-                
+
                 inputStyle="inputStyle"
                 numInputs={6}
                 separator={<span></span>}

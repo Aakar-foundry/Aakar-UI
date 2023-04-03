@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import classes from './LoginStyle.module.css';
+import classesLogin from './LoginStyle.module.css';
 import AakarImage from './images/Aakar-logo.gif';
 
 const Login = () => {
@@ -11,12 +11,12 @@ const Login = () => {
 
   return (
     <div>
-        <form className={classes.form} >
-        <div className={classes.imgcontainer}>
-            <img src={AakarImage} alt="Avatar" className={classes.avatar}/>
+        <form className={classesLogin.form} >
+        <div className={classesLogin.imgcontainer}>
+            <img src={AakarImage} alt="Avatar" className={classesLogin.avatar}/>
         </div>
         
-        <div  className={classes.container}>
+        <div  className={classesLogin.container}>
             <label htmlFor="uname"><b>Domain Email</b></label>
             <input type="text" placeholder="Enter Domain Email" name="email" required/>
             
@@ -35,13 +35,13 @@ const Login = () => {
             </label>
         </div>
         
-        <div  className={classes.container} style={{backgroundColor:'#f1f1f1'}}>
-            <button type="button"  className={classes.cancelbtn}>Cancel</button>
-            <span  className={classes.psw}>Forgot <a href=''>password?</a></span>
+        <div  className={classesLogin.container} style={{backgroundColor:'#f1f1f1'}}>
+            <button type="button"  className={classesLogin.cancelbtn}>Cancel</button>
+            <span  className={classesLogin.psw}>Forgot <a href=''>password?</a></span>
         </div>
     </form>
     <a  >
-        <button   className={classes.signup} value="Sign Up" >Register/Sign Up</button>
+        <button   className={classesLogin.signup} value="Sign Up" >Register/Sign Up</button>
     </a>
     </div>
   )
