@@ -18,10 +18,10 @@ function App() {
       <Routes>
 
         {/* changes made for react element */}
-      {/* <Route element={true ? <Layout/> : <Home/>}> */}
+      <Route element={true ? <Layout/> : <Home/>}>
 
 
-      <Route element={true ? <ForgotPassword/> : <Home/>}>
+      {/* <Route element={true ? <ForgotPassword/> : <Home/>}> */}
         {BasicRoutesConfig.map((route, key) => {
           return route ? <Route key={route.name} {...route} /> : null;
         })}   
