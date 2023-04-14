@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
 }
@@ -10,7 +10,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: rgb(236,251,255);
-}
+} */
 
 .form {
     border: 3px solid #f1f1f1;
@@ -38,7 +38,6 @@ body{
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
   }
   
   /* Add a hover effect for buttons */
