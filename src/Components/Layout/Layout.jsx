@@ -20,12 +20,8 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
 
 const drawerWidth = 240;
-
-
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -93,10 +89,8 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout() {
-  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,12 +98,6 @@ export default function Layout() {
 
   const handleDrawerClose = () => {
     setOpen(false);
-  };
-
-  const navigate = useNavigate();
-
-  const handleClick = (text) => {
-    navigate(`/${text}`);
   };
 
   return (
@@ -146,7 +134,7 @@ export default function Layout() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Employee", "Admin", "Quality", "Machinery","Marketing","Foundary","Designing","Management","Packaging_Logistic"].map((text, index) => (
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -154,9 +142,6 @@ export default function Layout() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                
-                onClick={() => handleClick(text)}
-
               >
                 <ListItemIcon
                   sx={{
@@ -174,9 +159,10 @@ export default function Layout() {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3,marginTop: 8 }}>
         <Suspense fallback={<div>Loding....!</div>}>
           <Outlet>
+            
           </Outlet>
         </Suspense>
       </Box>
