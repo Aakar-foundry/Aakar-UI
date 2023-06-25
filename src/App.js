@@ -12,6 +12,7 @@ import Foundary from './Pages/Foundary/Foundary';
 import Designing from './Pages/Designing/Designing';
 import Management from './Pages/Management/Management';
 import Packaging_Logistic from './Pages/Packaging_Logistic/Packaging_Logistic';
+import RFQForm from './Pages/RFQForm/RFQForm';
 
 function App() {  
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="Designing" element={<Designing />} />
         <Route path="Management" element={<Management />} />
         <Route path="Packaging_Logistic" element={<Packaging_Logistic />} />
+        <Route path="RFQForm" element={<RFQForm />} />
         </Route>           
       </Routes>
     </Suspense>
