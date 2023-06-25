@@ -31,7 +31,7 @@ const rows = [
 ];
 
 
-const Management = () => {
+const Marketing = () => {
     return <div style={{ height: 400, width: '100%' }}>
     <DataGrid
       rows={rows}
@@ -43,4 +43,4 @@ const Management = () => {
   </div>
 }
 
-export default Management
+export default Marketing

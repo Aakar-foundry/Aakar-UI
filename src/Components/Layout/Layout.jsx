@@ -93,7 +93,6 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout() {
-  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   
@@ -109,7 +108,9 @@ export default function Layout() {
   const navigate = useNavigate();
 
   const handleClick = (text) => {
-    navigate(`/${text}`);
+    text=text.charAt(0).toLowerCase() + text.slice(1);
+    console.log(text)
+    navigate('/base/'+text);
   };
 
   return (
@@ -130,7 +131,7 @@ export default function Layout() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+           {/* //todo : LOGO */}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -174,7 +175,7 @@ export default function Layout() {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} style={{marginTop: "6em"}}>
         <Suspense fallback={<div>Loding....!</div>}>
           <Outlet>
           </Outlet>

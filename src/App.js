@@ -1,39 +1,58 @@
-import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Components/Layout/Layout';
 import Home from './Pages/Home/Home';
-import { BasicRoutesConfig } from './Routes/Router';
-import Employee from './Pages/Employee/Employee';
-import Admin from './Pages/Admin/Admin';
-import Quality from './Pages/Quality/Quality';
-import Machinery from './Pages/Machinery/Machinery';
-import Marketing from './Pages/Marketing/Marketing';
-import Foundary from './Pages/Foundary/Foundary';
-import Designing from './Pages/Designing/Designing';
-import Management from './Pages/Management/Management';
-import Packaging_Logistic from './Pages/Packaging_Logistic/Packaging_Logistic';
+import { BasicRoutesConfig, rolesConfig } from './Routes/Router';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveAuth } from './Reducer/authSlice';
+import { ADMIN, USER } from './Utils/Constant';
 
-function App() {  
+function App() {
+  const { isAuthenticated, userRole, token } = useSelector(state => state.authDetails);
+  const loginToken = sessionStorage.getItem("loginToken") && sessionStorage.getItem("isAuthenticated") && sessionStorage.getItem("userRole")
+  const dispatch = useDispatch();
+  const storeDetails = async () => {
+    await dispatch(
+      saveAuth({
+        isAuthenticated: sessionStorage.getItem("isAuthenticated"),
+        userRole: sessionStorage.getItem("userRole"),
+        token: sessionStorage.getItem("loginToken")
+      })
+    );
+  }
+  useEffect(() => {
+    storeDetails();
+  }, [loginToken])
+
+
+  let routes;
+  if (isAuthenticated || sessionStorage.getItem("isAuthenticated")) {
+    if (userRole === USER || sessionStorage.getItem("userRole") === USER) {
+      routes = rolesConfig["user"];
+    } else if (userRole === ADMIN) {
+      routes = rolesConfig["Admin"];
+    }
+  }
+console.log("loginToken",loginToken)
   return (
     <>
-    <Suspense fallback={<div>Loding....!</div>}>
-      <Routes>
-      <Route element={true ? <Layout/> : <Home/>}>
-        {BasicRoutesConfig.map((route, key) => {
-          return route ? <Route key={route.name} {...route} /> : null;
-        })}   
-        <Route path="Employee" element={<Employee />} />
-        <Route path="Admin" element={<Admin />} />
-        <Route path="Quality" element={<Quality />} />
-        <Route path="Machinery" element={<Machinery />} />
-        <Route path="Marketing" element={<Marketing />} />
-        <Route path="Foundary" element={<Foundary />} />
-        <Route path="Designing" element={<Designing />} />
-        <Route path="Management" element={<Management />} />
-        <Route path="Packaging_Logistic" element={<Packaging_Logistic />} />
-        </Route>           
-      </Routes>
-    </Suspense>
+      <Suspense fallback={<div>Loding....!</div>}>
+        <Routes>
+          {BasicRoutesConfig.map((route, key) => {
+            return route ? <Route key={key} {...route} /> : null;
+          })}
+
+          {isAuthenticated || loginToken ? (
+            <Route element={loginToken ? <Layout /> : <Home />}>
+              {routes?.routes.map((route, key) => {
+                return route ? <Route key={key} {...route} /> : null;
+              })}
+            </Route>
+          ) : (
+            <Route path="/base/*" element={<Navigate to="/login" replace />} />
+          )}
+        </Routes>
+      </Suspense>
     </>
   );
 }
