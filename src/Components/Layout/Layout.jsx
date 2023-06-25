@@ -21,6 +21,10 @@ import MailIcon from "@mui/icons-material/Mail";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { deleteAuth } from "../../Reducer/authSlice";
+import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
 
 const drawerWidth = 240;
 
@@ -104,9 +108,14 @@ export default function Layout() {
   const navigate = useNavigate();
 
   const handleClick = (text) => {
-    text=text.charAt(0).toLowerCase() + text.slice(1);
-    console.log(text)
-    navigate('/base/'+text);
+    text = text.charAt(0).toLowerCase() + text.slice(1);
+    console.log(text);
+    navigate("/base/" + text);
+  };
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await dispatch(deleteAuth());
+    navigate("/login");
   };
 
   return (
@@ -126,8 +135,10 @@ export default function Layout() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-           {/* //todo : LOGO */}
+          <Typography variant="h6" noWrap component="div" >
+            <Button variant="contained" endIcon={<SendIcon />} onClick={handleLogout}>
+              Logout
+            </Button>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -144,6 +155,7 @@ export default function Layout() {
         <Divider />
         <List>
           {[
+            "RFQForm",
             "Employee",
             "Admin",
             "Quality",
@@ -153,7 +165,7 @@ export default function Layout() {
             "Designing",
             "Management",
             "Packaging_Logistic",
-            "RFQForm", // Add RFQForm to the list
+            // Add RFQForm to the list
           ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -180,7 +192,11 @@ export default function Layout() {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} style={{marginTop: "6em"}}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3 }}
+        style={{ marginTop: "6em" }}
+      >
         <Suspense fallback={<div>Loding....!</div>}>
           <Outlet />
         </Suspense>

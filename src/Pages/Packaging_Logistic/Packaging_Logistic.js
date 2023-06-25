@@ -33,6 +33,7 @@ const rows = [
 
 const Packaging_Logistics = () => {
     return <div style={{ height: 400, width: '100%' }}>
+    <h1 style={{textAlign:"center"}}>Packaging Logistics View List </h1>
     <DataGrid
       rows={rows}
       columns={columns}

@@ -37,7 +37,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const handleLogin = async () => {
     try {
-        console.log("HEllo")
       dispatch(
         saveAuth({
           isAuthenticated: true,
@@ -56,7 +55,7 @@ const Login = () => {
       {isAuthenticated === true ? (
         navigate("/base/home")
       ) : (
-        <div>
+        <div className={classesLogin.top}>
           <div className={classesLogin.form}>
             <div className={classesLogin.imgcontainer}>
               <img
@@ -106,17 +105,14 @@ const Login = () => {
               className={classesLogin.container}
               style={{ backgroundColor: "#f1f1f1" }}
             >
-              <button type="button" className={classesLogin.cancelbtn}>
-                Cancel
-              </button>
               <span className={classesLogin.psw}>
-                Forgot <a href="">password?</a>
+                Forgot <button onClick={()=>navigate("/forgotPassword")}>password?</button>
               </span>
             </div>
+            <button className={classesLogin.signup} value="Sign Up" onClick={()=>navigate("/register")}>
+              Register/Sign Up
+            </button>
           </div>
-          <button className={classesLogin.signup} value="Sign Up">
-            Register/Sign Up
-          </button>
         </div>
       )}
     </>

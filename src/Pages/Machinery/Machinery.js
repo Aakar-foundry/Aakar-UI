@@ -33,6 +33,7 @@ const rows = [
 
 const Machinery = () => {
   return <div style={{ height: 400, width: '100%' }}>
+  <h1 style={{textAlign:"center"}}>Machinery View List </h1>
   <DataGrid
     rows={rows}
     columns={columns}

@@ -32,15 +32,20 @@ const rows = [
 
 
 const Employee = () => {
-    return <div style={{ height: 400, width: '100%' }}>
-    <DataGrid
-      rows={rows}
-      columns={columns}
-      pageSize={5}
-      rowsPerPageOptions={[5]}
-      checkboxSelection
-    />
-  </div>
+  return (
+    <>
+    <div style={{ height: 400, width: '100%' }}>
+    <h1 style={{textAlign:"center"}}>Employee View List </h1>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
+    </div>
+    </>
+  )
 }
 
 export default Employee

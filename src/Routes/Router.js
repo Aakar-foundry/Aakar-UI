@@ -1,4 +1,6 @@
 import React from "react";
+import ForgotPassword from "../Pages/ForgotPassword/ForgotPassword";
+const RFQForm = React.lazy(() => import("../Pages/RFQForm/RFQForm"))
 const Login = React.lazy(() => import("../Pages/Login/Login"))
 const Register = React.lazy(() => import("../Pages/Register/Register"))
 const Marketing = React.lazy(() => import("../Pages/Marketing/Marketing"))
@@ -75,6 +77,16 @@ const components = {
 		name: "Packaging_Logistic",
 		element: <Packaging_Logistics />,
 	},
+	RFQForm: {
+		path: "/base/RFQForm",
+		name: "RFQForm",
+		element: <RFQForm />,
+	},
+	ForgotPassword: {
+		path: "/forgotPassword",
+		name: "ForgotPassword",
+		element: <ForgotPassword />,
+	},
 }
 
 const rolesConfig = {
@@ -90,7 +102,9 @@ const rolesConfig = {
 			components.Admin,
 			components.Quality,
 			components.Management,
-			components.Machinery
+			components.Machinery,
+			components.RFQForm,
+
 		],
 	},
 	user: {
@@ -105,12 +119,14 @@ const rolesConfig = {
 			components.Admin,
 			components.Quality,
 			components.Management,
-			components.Machinery
+			components.Machinery,
+			components.RFQForm
 		],
 	},
 };
 const BasicRoutesConfig = [	
 	components.Login,
 	components.Register,
+	components.ForgotPassword
 ];
 export { rolesConfig, BasicRoutesConfig };
