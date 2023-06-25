@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -22,10 +22,7 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 const drawerWidth = 240;
-
-
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -93,10 +90,8 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Layout() {
-  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -146,7 +141,18 @@ export default function Layout() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Employee", "Admin", "Quality", "Machinery","Marketing","Foundary","Designing","Management","Packaging_Logistic"].map((text, index) => (
+          {[
+            "Employee",
+            "Admin",
+            "Quality",
+            "Machinery",
+            "Marketing",
+            "Foundary",
+            "Designing",
+            "Management",
+            "Packaging_Logistic",
+            "RFQForm", // Add RFQForm to the list
+          ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -154,9 +160,7 @@ export default function Layout() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                
                 onClick={() => handleClick(text)}
-
               >
                 <ListItemIcon
                   sx={{
@@ -176,8 +180,7 @@ export default function Layout() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Suspense fallback={<div>Loding....!</div>}>
-          <Outlet>
-          </Outlet>
+          <Outlet />
         </Suspense>
       </Box>
     </Box>
