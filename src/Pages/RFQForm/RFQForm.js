@@ -19,6 +19,7 @@ const RFQForm = () => {
 
   return (
     <div className="container">
+    <h1 className='title'>RFQ Form</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group">

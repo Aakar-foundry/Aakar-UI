@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./RegisterStyle.module.css";
 import AakarImage from "./images/Aakar-logo.gif";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const submitHandler = (e) => {
@@ -11,6 +12,7 @@ const Register = () => {
     console.log(password);
     console.log(chpassword);
   };
+  const navigate = useNavigate();
   const cancelHandler = ()=>{
     setChpassword('');
     setEmail('');
@@ -25,7 +27,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [chpassword, setChpassword] = useState("");
   return (
-    <div>
+    <div className={classes.top}>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.imgcontainer}>
           <img src={AakarImage} alt="Avatar" className={classes.avatar} />
@@ -110,13 +112,10 @@ const Register = () => {
               Register/Sign Up
             </button>
           </a>
-          <button type="button" onClick={cancelHandler} className={classes.cancelbtn}>
-            Cancel
-          </button>
           <a>
             <button type="button"
-            //  onClick={() => {}} 
-             className={classes.signin}>
+            onClick={()=>navigate("/login")}
+             className={classes.signin} >
               Sign In
             </button>
           </a>

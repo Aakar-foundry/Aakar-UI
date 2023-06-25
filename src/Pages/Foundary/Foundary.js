@@ -32,7 +32,9 @@ const rows = [
 
 
 const Foundary = () => {
-    return <div style={{ height: 400, width: '100%' }}>
+  return (
+    <div style={{ height: 400, width: '100%' }}>
+    <h1 style={{ textAlign: "center" }}>Foundary View List </h1>
     <DataGrid
       rows={rows}
       columns={columns}
@@ -41,6 +43,7 @@ const Foundary = () => {
       checkboxSelection
     />
   </div>
+  )
 }
 
 export default Foundary

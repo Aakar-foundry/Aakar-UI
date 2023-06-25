@@ -33,6 +33,7 @@ const rows = [
 
 const Admin = () => {
   return <div style={{ height: 400, width: '100%' }}>
+  <h1 style={{textAlign:"center"}}>Admin View List </h1>
   <DataGrid
     rows={rows}
     columns={columns}

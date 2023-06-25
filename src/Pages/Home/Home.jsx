@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Home = () => {
+  
   return (
     <div>
-      Hello
+      <h1 style={{textAlign:"center"}}>Home View List </h1>
     </div>
   )
 }
