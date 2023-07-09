@@ -19,8 +19,10 @@ const RFQForm = () => {
 
   return (
     <div className="container">
-    <h1 className='title'>RFQ Form</h1>
       <form onSubmit={handleSubmit}>
+      <div className="heading">
+          <h2>RFQ-Form</h2>
+        </div>
         <div className="form-row">
           <div className="form-group">
             <label>Customer Name:</label>
@@ -40,7 +42,7 @@ const RFQForm = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="checkbox-label">
             <label>Domestic:</label>
             <input
               type="checkbox"
@@ -49,7 +51,7 @@ const RFQForm = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="checkbox-label">
             <label>Export:</label>
             <input
               type="checkbox"
@@ -105,6 +107,13 @@ const RFQForm = () => {
               value={quoteSubmitDate}
               onChange={(e) => setQuoteSubmitDate(e.target.value)}
             />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>RFQ - Attributes</label>
+            {/* <input type="text" /> */}
           </div>
         </div>
 
@@ -260,7 +269,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>21. (Ex-Works /FOB/CIF/DDP/DDU)		
+            <label>21. (Ex-Works /FOB/CIF/DDP/DDU)    
 :</label>
             <input type="text" />
           </div>
@@ -268,7 +277,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>22. Destination port / address		
+            <label>22. Destination port / address   
 :</label>
             <input type="text" />
           </div>
@@ -276,7 +285,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>23. Annual Tonnage - MT		
+            <label>23. Annual Tonnage - MT    
 :</label>
             <input type="text" />
           </div>
@@ -284,7 +293,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>24. Quote Currency (£, € , $ , INR)		
+            <label>24. Quote Currency (£, € , $ , INR)    
 :</label>
             <input type="text" />
           </div>
@@ -312,10 +321,17 @@ const RFQForm = () => {
           </div>
         </div>
 
+        <div className="form-row">
+          <div className="form-group">
+            <label>Design and Foundary</label>
+            {/* <input type="text" /> */}
+          </div>
+        </div>
+
         
         <div className="form-row">
           <div className="form-group">
-            <label>1. Finished Wt (Machined) (Kg)		
+            <label>1. Finished Wt (Machined) (Kg)   
 :</label>
             <input type="text" />
           </div>
@@ -323,7 +339,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>2. Net Raw Casting Wt (Kg)		
+            <label>2. Net Raw Casting Wt (Kg)   
 :</label>
             <input type="text" />
           </div>
@@ -331,7 +347,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>3. Part Surface Area - in MM Square		
+            <label>3. Part Surface Area - in MM Square    
 :</label>
             <input type="text" />
           </div>
@@ -339,7 +355,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>4. Die-Casting Process		
+            <label>4. Die-Casting Process   
 :</label>
             <input type="text" />
           </div>
@@ -347,7 +363,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>5. No. of Impressions or Cavities		
+            <label>5. No. of Impressions or Cavities    
 :</label>
             <input type="text" />
           </div>
@@ -355,7 +371,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>6. Alternative Raw Material Suggested By Aakar		
+            <label>6. Alternative Raw Material Suggested By Aakar   
 :</label>
             <input type="text" />
           </div>
@@ -363,7 +379,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>7. Die cost (Rs Lakhs)		
+            <label>7. Die cost (Rs Lakhs)   
 :</label>
             <input type="text" />
           </div>
@@ -371,7 +387,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>8. Core Box Cost		
+            <label>8. Core Box Cost   
 :</label>
             <input type="text" />
           </div>
@@ -379,7 +395,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>9. Expected Die Life (Shots)		
+            <label>9. Expected Die Life (Shots)   
 :</label>
             <input type="text" />
           </div>
@@ -387,7 +403,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>10. Die Manufacturing Period in Weeks		
+            <label>10. Die Manufacturing Period in Weeks    
 :</label>
             <input type="text" />
           </div>
@@ -395,7 +411,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>11. No of shots/Hr		
+            <label>11. No of shots/Hr   
 :</label>
             <input type="text" />
           </div>
@@ -403,7 +419,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>12. No. of Sand Cores Required		
+            <label>12. No. of Sand Cores Required   
 :</label>
             <input type="text" />
           </div>
@@ -418,7 +434,14 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>14. Machine Type - CNC/VMC/HMC Please Specify		
+            <label>Machine and Quality</label>
+            {/* <input type="text" /> */}
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>14. Machine Type - CNC/VMC/HMC Please Specify    
 </label>
             <input type="text" />
           </div>
@@ -426,7 +449,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>15. Machining cost (Rs/Pc)		
+            <label>15. Machining cost (Rs/Pc)   
 :</label>
             <input type="text" />
           </div>
@@ -434,7 +457,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>16. Machining Fixture cost (One time Inv)		
+            <label>16. Machining Fixture cost (One time Inv)    
 :</label>
             <input type="text" />
           </div>
@@ -442,7 +465,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>17. Inspection Gauges Cost		
+            <label>17. Inspection Gauges Cost   
 </label>
             <input type="text" />
           </div>
@@ -450,7 +473,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>18. Leak testing fixture cost		
+            <label>18. Leak testing fixture cost    
 </label>
             <input type="text" />
           </div>
@@ -458,7 +481,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>19. Washing fixture cost		
+            <label>19. Washing fixture cost   
 </label>
             <input type="text" />
           </div>
@@ -466,7 +489,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>20. Plastic Protection Cap Costs (Specify Quantity & Cost)		
+            <label>20. Plastic Protection Cap Costs (Specify Quantity & Cost)   
 :</label>
             <input type="text" />
           </div>
@@ -482,7 +505,14 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>22. First Sample Date		
+            <label>New Product Development</label>
+            {/* <input type="text" /> */}
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>22. First Sample Date    
 :</label>
             <input type="text" />
           </div>
@@ -498,7 +528,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>24. Capital Investment for machines			
+            <label>24. Capital Investment for machines      
 :</label>
             <input type="text" />
           </div>
@@ -506,7 +536,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>25. Part Feasible				
+            <label>25. Part Feasible        
 :</label>
             <input type="text" />
           </div>
@@ -514,7 +544,7 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>26. Feasible with changes	
+            <label>26. Feasible with changes  
 :</label>
             <input type="text" />
           </div>
@@ -522,70 +552,15 @@ const RFQForm = () => {
 
         <div className="form-row">
           <div className="form-group">
-            <label>27. Part Not Feasible				
+            <label>27. Part Not Feasible        
 :</label>
             <input type="text" />
           </div>
         </div>
 
-        <div className="form-row">
-          <h3>Officer Details</h3>
-          {/* <div className="form-group">
-            <label>Marketing:</label>
-            <input type="text" />
-          </div>
 
-          <div className="form-group">
-            <label>Design & Tool Room:</label>
-            <input type="text" />
-          </div>
-
-          <div className="form-group">
-            <label>Machining:</label>
-            <input type="text" />
-          </div>
-
-          <div className="form-group">
-            <label>QA:</label>
-            <input type="text" />
-          </div>
-
-          <div className="form-group">
-            <label>Foundry:</label>
-            <input type="text" />
-          </div> */}
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label>Officer Name:</label>
-            <input type="text" />
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label>Signature:</label>
-            <input type="text" />
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label>Recd Date:</label>
-            <input type="text" />
-          </div>
-
-          <div className="form-group">
-            <label>Sample Component Supplied:</label>
-            <input type="text" />
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <button type="submit">Submit</button>
-          </div>
+        <div className="submit-button">
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
