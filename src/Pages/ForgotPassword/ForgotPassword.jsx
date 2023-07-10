@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OTPInput from "react-otp-input";
 import FPclasses from "./ForgetPassword.module.css";
+import AakarImage from "./images/Aakar-logo.gif";
 const ForgotPassword = () => {
   const [OTP, setOTP] = useState();
   function handleChange(OTP) {
@@ -12,10 +13,21 @@ const ForgotPassword = () => {
   }
   return (
     <>
-        <h1 style={{textAlign:"center"}}>ForgetPassword </h1>
-    <div className={FPclasses.verifyDiv}>
+    <div className={FPclasses.top}>
+          <div className={FPclasses.form}>
+          <div className={FPclasses.imgcontainer}>
+              <img
+                src={AakarImage}
+                alt="Avatar"
+                className={FPclasses.avatar}
+              />
+            </div>
+            <div className={FPclasses.verifyDiv}>
       <div>
-        <form onSubmit={submitHandler}>
+      
+        <div className={FPclasses.container}>
+          <form onSubmit={submitHandler}>
+          <h1 style={{textAlign:"center"}}>Verify your E-mail ID. </h1>
           <label>Enter your Email:</label>
           <input type="email" />
           <div className={FPclasses.otpElements}>
@@ -36,6 +48,10 @@ const ForgotPassword = () => {
         </form>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+    
     </>
   );
 };
