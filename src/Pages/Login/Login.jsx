@@ -106,7 +106,7 @@ const Login = () => {
               style={{ backgroundColor: "#f1f1f1" }}
             >
               <span className={classesLogin.psw}>
-                Forgot <button onClick={()=>navigate("/forgotPassword")}>password?</button>
+                <button onClick={()=>navigate("/forgotPassword")}>Forgot Password?</button>
               </span>
             </div>
             <button className={classesLogin.signup} value="Sign Up" onClick={()=>navigate("/register")}>

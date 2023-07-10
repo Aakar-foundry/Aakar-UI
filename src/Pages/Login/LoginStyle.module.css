@@ -16,11 +16,15 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: -webkit-linear-gradient(to right, #283655, #d0e1f9, #4d648d);  
+  background: linear-gradient(to right, #283655, #d0e1f9, #4d648d);
 }
 .form {
-    border: 3px solid #f1f1f1;
-    max-width: 500px;
-    background-color: white;
+  background: -webkit-linear-gradient(to right, #B85042, #E7E8D1, #A7BEAE);
+  background: linear-gradient(to right, #B85042, #E7E8D1, #A7BEAE);
+  border: 3px solid #1e1f26;
+  max-width: 500px;
+  background-color: #1e1f26;
   }
 
   
@@ -37,12 +41,13 @@ body{
   
   /* Set a style for all buttons */
  button {
-    background-color: #68e9f5;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
   }
   
   /* Add a hover effect for buttons */
@@ -80,11 +85,11 @@ body{
     padding-top: 16px;
   }
   .signup{
-    background-color: #35d391;
+    background-color: #258039;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
+    border: #0f1b07;
     cursor: pointer;
     width: 100%;
     border-radius: 10px 10px;
