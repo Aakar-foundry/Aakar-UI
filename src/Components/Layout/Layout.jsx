@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,6 +20,11 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { deleteAuth } from "../../Reducer/authSlice";
+import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
 
 const drawerWidth = 240;
 
@@ -100,6 +105,19 @@ export default function Layout() {
     setOpen(false);
   };
 
+  const navigate = useNavigate();
+
+  const handleClick = (text) => {
+    text = text.charAt(0).toLowerCase() + text.slice(1);
+    console.log(text);
+    navigate("/base/" + text);
+  };
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await dispatch(deleteAuth());
+    navigate("/login");
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -117,8 +135,10 @@ export default function Layout() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+          <Typography variant="h6" noWrap component="div" >
+            <Button variant="contained" endIcon={<SendIcon />} onClick={handleLogout}>
+              Logout
+            </Button>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -134,7 +154,19 @@ export default function Layout() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {[
+            "RFQForm",
+            "Employee",
+            "Admin",
+            "Quality",
+            "Machinery",
+            "Marketing",
+            "Foundary",
+            "Designing",
+            "Management",
+            "Packaging_Logistic",
+            // Add RFQForm to the list
+          ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -142,6 +174,7 @@ export default function Layout() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
+                onClick={() => handleClick(text)}
               >
                 <ListItemIcon
                   sx={{
@@ -159,11 +192,13 @@ export default function Layout() {
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3 }}
+        style={{ marginTop: "6em" }}
+      >
         <Suspense fallback={<div>Loding....!</div>}>
-          <Outlet>
-            
-          </Outlet>
+          <Outlet />
         </Suspense>
       </Box>
     </Box>
